@@ -1,6 +1,9 @@
 const { validationResult } = require('express-validator');
-const jwb = require('jsonwebtoken');
+const jwt = require('jsonwebtoken');
 const cookieParser = require('cookie-parser');
+const bcrypt = require('bcrypt');
+const secretKey = process.env.JWT_SECRET
+const userModel = require('../models/user');
 
 module.exports = async (req, res) => {
     try {
@@ -10,7 +13,18 @@ module.exports = async (req, res) => {
         }
 
         const { email, password } = req.body;
-        res.status(201).json({ message: 'User logged in successfully', user: { email } });
+        const user = await userModel.findOne({ email });
+        if (!user) {
+            return res.status(400).json({ message: 'Invalid email ' });
+        }
+        const isMatch = await bcrypt.compare(password, user.password);
+        if (!isMatch) {
+            return res.status(400).json({ message: 'Invalid password' });
+        }
+        const token = jwt.sign({ email: user.email }, secretKey, { expiresIn: '1h' });
+        res.cookie("token", token);
+        res.status(200).json({ message: 'Login successful', user: { username: user.username, email: user.email } });
+
     } catch (error) {
         res.status(500).json({ message: 'Server error', error: error.message });
     }
