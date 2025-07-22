@@ -134,7 +134,7 @@ function MainApplication({ onSwitchPage }) {
 // --- App Component (The Main Controller) ---
 // This component decides which page to show based on the application's state.
 // This would be the only component you render in your `main.jsx` file.
-export default function App() {
+export default function email_Verfication_Page() {
   // 'useState' hook to manage which page is currently active.
   const [currentPage, setCurrentPage] = useState('verification');
 
