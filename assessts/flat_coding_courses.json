@@ -1,0 +1,282 @@
+[
+    {
+        "image": "https://img-c.udemycdn.com/course/750x422/1565838_e54e_18.jpg",
+        "name": "Full Stack Web Development Bootcamp",
+        "price": 3499,
+        "discount": "30%",
+        "author": "Angela Yu",
+        "category": "Web Development",
+        "description": [
+            "Learn HTML, CSS, JavaScript, React, Node.js, Express, and MongoDB through hands-on, real-world projects.",
+            "You’ll master frontend to backend essentials and deploy full-stack applications to live servers.",
+            "Includes detailed modules on deployment, hosting, and version control best practices."
+        ],
+        "rating": 4.8
+    },
+    {
+        "image": "https://img-c.udemycdn.com/course/480x270/705264_caa9_13.jpg",
+        "name": "Modern React with Redux",
+        "price": 2899,
+        "discount": "20%",
+        "author": "Stephen Grider",
+        "category": "Web Development",
+        "description": [
+            "Master React and Redux by building real-world applications and diving deep into state management.",
+            "Learn functional components, hooks, and middleware integration in real use-cases.",
+            "This course is ideal for intermediate devs wanting to build scalable frontend systems."
+        ],
+        "rating": 4.7
+    },
+    {
+        "image": "https://i.ytimg.com/vi/x2uC82cd638/maxresdefault.jpg",
+        "name": "Responsive Web Design Masterclass",
+        "price": 1999,
+        "discount": "15%",
+        "author": "Jonas Schmedtmann",
+        "category": "Web Development",
+        "description": [
+            "Learn modern HTML5, CSS3, Flexbox, and Grid with real responsive design projects.",
+            "Understand media queries, layout principles, and accessibility features.",
+            "Build pixel-perfect websites that look great on desktops, tablets, and mobiles."
+        ],
+        "rating": 4.6
+    },
+    {
+        "image": "https://media.licdn.com/dms/image/v2/D5612AQE_3tQyJY6lRA/article-cover_image-shrink_720_1280/article-cover_image-shrink_720_1280/0/1727013538184?e=2147483647&v=beta&t=HuxCQ8VVsHI1OzkTbTJIMCDp2-nIB7Y2xVe-_Ghhk-8",
+        "name": "Next.js & Tailwind Complete Guide",
+        "price": 2599,
+        "discount": "10%",
+        "author": "Maximilian Schwarzmüller",
+        "category": "Web Development",
+        "description": [
+            "Build fast, SEO-friendly apps with Next.js and Tailwind CSS from scratch.",
+            "Includes routing, server-side rendering, and headless CMS integration.",
+            "Ideal for those who want to master performance and design in React ecosystems."
+        ],
+        "rating": 4.8
+    },
+    {
+        "image": "https://img-c.udemycdn.com/course/750x422/1917546_682b_3.jpg",
+        "name": "Master the Coding Interview – DSA",
+        "price": 3999,
+        "discount": "35%",
+        "author": "Andrei Neagoie",
+        "category": "Data Structures & Algorithms (DSA)",
+        "description": [
+            "Learn DSA through visual explanations, and ace technical interviews at top tech companies.",
+            "Covers arrays, strings, trees, graphs, recursion, and dynamic programming.",
+            "Includes mock interview problems from Google, Facebook, and Amazon."
+        ],
+        "rating": 4.9
+    },
+    {
+        "image": "https://files.codingninjas.in/article_images/custom-upload-1728967721-947da464.webp",
+        "name": "Data Structures in C++",
+        "price": 1599,
+        "discount": "10%",
+        "author": "Abdul Bari",
+        "category": "Data Structures & Algorithms (DSA)",
+        "description": [
+            "Learn all essential DSA concepts with deep explanations in C++ programming.",
+            "Includes stack, queue, linked list, tree, graph, hashing and their implementations.",
+            "This course helps build logic from scratch for competitive coding and interviews."
+        ],
+        "rating": 4.7
+    },
+    {
+        "image": "https://blog.pwskills.com/wp-content/uploads/2023/12/Competitive-Programming-in-Python.jpg",
+        "name": "Python for DSA and Competitive Coding",
+        "price": 2199,
+        "discount": "20%",
+        "author": "Gaurav Sen",
+        "category": "Data Structures & Algorithms (DSA)",
+        "description": [
+            "Solve problems from scratch using Python with in-depth DSA logic and optimizations.",
+            "Includes real-time walkthroughs, time complexity analysis, and visualizations.",
+            "Great for both beginners and intermediate coders preparing for contests."
+        ],
+        "rating": 4.6
+    },
+    {
+        "image": "https://repository-images.githubusercontent.com/305489298/15b16680-1393-11eb-9edd-d63e1f4b4b61",
+        "name": "450 DSA Questions Course (Crack SDE Interviews)",
+        "price": 1799,
+        "discount": "25%",
+        "author": "Love Babbar",
+        "category": "Data Structures & Algorithms (DSA)",
+        "description": [
+            "Cover 450 curated problems across arrays, strings, graphs, DP, and more with dry runs.",
+            "Structured to cover beginner to advanced topics with interview-level questions.",
+            "Includes guided problem-solving techniques and efficient time-complexity analysis."
+        ],
+        "rating": 4.8
+    },
+    {
+        "image": "https://img-c.udemycdn.com/course/750x422/950390_270f_3.jpg",
+        "name": "Machine Learning A-Z™: Hands‑On Python & R",
+        "price": 3799,
+        "discount": "40%",
+        "author": "Kirill Eremenko & Hadelin de Ponteves",
+        "category": "Data Science & Machine Learning",
+        "description": [
+            "Hands‑on projects covering regression, classification, clustering, and NLP techniques.",
+            "Includes both Python and R implementations, with end‑to‑end model pipelines.",
+            "Ideal for real‑world applications using case studies and business problem‑solving."
+        ],
+        "rating": 4.7
+    },
+    {
+        "image": "https://daxg39y63pxwu.cloudfront.net/images/blog/python-for-data-science/Python_for_Data_Science.png",
+        "name": "Data Science with Python",
+        "price": 2499,
+        "discount": "20%",
+        "author": "Jose Portilla",
+        "category": "Data Science & Machine Learning",
+        "description": [
+            "Explore pandas, matplotlib, seaborn, sklearn, and more with real datasets.",
+            "From data cleaning to visualization and model building — all covered.",
+            "Ideal for learners with Python basics looking to dive into data analysis."
+        ],
+        "rating": 4.8
+    },
+    {
+        "image": "https://d15cw65ipctsrr.cloudfront.net/a4/079d5e7c7b45ac9107f22bfcfeab91/Specialization-logo.png",
+        "name": "Deep Learning Specialization",
+        "price": 4299,
+        "discount": "25%",
+        "author": "Andrew Ng",
+        "category": "Data Science & Machine Learning",
+        "description": [
+            "Learn neural networks, CNNs, and sequence models with hands‑on projects in TensorFlow.",
+            "This Coursera‑originated series covers the core of AI systems.",
+            "Taught by a world‑renowned AI researcher — a must‑have credential."
+        ],
+        "rating": 4.9
+    },
+    {
+        "image": "https://media.licdn.com/dms/image/v2/D4D12AQFVL5Ga2ZOf6Q/article-cover_image-shrink_720_1280/article-cover_image-shrink_720_1280/0/1684066316062?e=2147483647&v=beta&t=vn78ZcCEh3c0aqo9avo_Hv6MNf1zpn9yUkfkbHTxM74",
+        "name": "Data Analysis with Pandas and NumPy",
+        "price": 1999,
+        "discount": "15%",
+        "author": "Alex The Analyst",
+        "category": "Data Science & Machine Learning",
+        "description": [
+            "Perform exploratory data analysis using powerful Python libraries with hands‑on files.",
+            "Covers data cleaning, grouping, merging, reshaping, and visualizations.",
+            "Ideal for analytics job seekers or researchers handling large datasets."
+        ],
+        "rating": 4.6
+    },
+    {
+        "image": "https://img-c.udemycdn.com/course/750x422/1708340_7108_5.jpg",
+        "name": "Flutter & Dart – The Complete Guide",
+        "price": 3199,
+        "discount": "30%",
+        "author": "Maximilian Schwarzmüller",
+        "category": "App Development",
+        "description": [
+            "Build native‑like iOS and Android apps with Flutter, including animations and Firebase integration.",
+            "Cover state management, custom widgets, REST APIs, and deployment to App‑Store/Play‑Store.",
+            "Great for developers wanting a single codebase for multiple platforms."
+        ],
+        "rating": 4.8
+    },
+    {
+        "image": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTth57_VYCivvfwRY0uI-y_LtPrvJue2IUgyA&s",
+        "name": "Android App Development with Kotlin",
+        "price": 2299,
+        "discount": "25%",
+        "author": "Philipp Lackner",
+        "category": "App Development",
+        "description": [
+            "Learn Kotlin and Android Studio to build real‑world native Android apps.",
+            "Includes Jetpack Compose, Room DB, Coroutines, and MVVM architecture.",
+            "Great for anyone targeting modern Android development from scratch."
+        ],
+        "rating": 4.7
+    },
+    {
+        "image": "https://www.w2ssolutions.com/blog/wp-content/uploads/2022/10/swift-for-iOS-app-development-w2ssolutions.png",
+        "name": "iOS App Development with Swift",
+        "price": 3599,
+        "discount": "20%",
+        "author": "Angela Yu",
+        "category": "App Development",
+        "description": [
+            "Build beautiful native iOS apps with Swift 5 and Xcode from beginner to pro.",
+            "Explore UIKit, CoreData, SwiftUI, and integrate APIs in functional apps.",
+            "Perfect for iPhone/iPad dev aspirants looking to publish apps on App Store."
+        ],
+        "rating": 4.9
+    },
+    {
+        "image": "https://img-c.udemycdn.com/course/750x422/1436092_2024_4.jpg",
+        "name": "React Native – The Practical Guide",
+        "price": 2899,
+        "discount": "20%",
+        "author": "Academind by Maximilian",
+        "category": "App Development",
+        "description": [
+            "Build cross‑platform mobile apps using React Native and Expo.",
+            "Includes navigation, native device features, and state management.",
+            "Suited for web developers transitioning into mobile app space."
+        ],
+        "rating": 4.8
+    },
+    {
+        "image": "https://img-c.udemycdn.com/course/750x422/437490_c76a_4.jpg",
+        "name": "The Complete Ethical Hacking Course",
+        "price": 2999,
+        "discount": "35%",
+        "author": "Zaid Sabih",
+        "category": "Cybersecurity & Ethical Hacking",
+        "description": [
+            "Learn penetration testing, network hacking, and web‑app security from scratch.",
+            "Includes Kali Linux tools, WiFi cracking, and system exploitation hands‑on.",
+            "Get real experience in ethical hacking with legal and ethical practices."
+        ],
+        "rating": 4.8
+    },
+    {
+        "image": "https://img-c.udemycdn.com/course/750x422/857010_8239_5.jpg",
+        "name": "Learn Ethical Hacking from Scratch",
+        "price": 2499,
+        "discount": "20%",
+        "author": "ZSecurity",
+        "category": "Cybersecurity & Ethical Hacking",
+        "description": [
+            "Use practical hacking tools, learn WiFi and system security with demos.",
+            "Deep dives into footprinting, phishing, sniffing, and social engineering.",
+            "Great starting point for those curious about cybersecurity careers."
+        ],
+        "rating": 4.7
+    },
+    {
+        "image": "https://i.ytimg.com/vi/bPVaOlJ6ln0/hq720.jpg?sqp=-oaymwEhCK4FEIIDSFryq4qpAxMIARUAAAAAGAElAADIQj0AgKJD&rs=AOn4CLBKsR_wUYyDZTRurUGuaNPzfd6YZA",
+        "name": "Cyber Security Crash Course for Beginners",
+        "price": 1899,
+        "discount": "15%",
+        "author": "Nathan House",
+        "category": "Cybersecurity & Ethical Hacking",
+        "description": [
+            "Learn how to protect yourself and your data with easy-to-understand examples.",
+            "Includes phishing, malware, ransomware, and social engineering awareness.",
+            "Perfect for non-techies and beginners seeking foundational cyber hygiene."
+        ],
+        "rating": 4.6
+    },
+    {
+        "image": "https://img-c.udemycdn.com/course/750x422/3776126_2cd7_2.jpg",
+        "name": "Red Team Ethical Hacking Masterclass",
+        "price": 3299,
+        "discount": "20%",
+        "author": "Heath Adams",
+        "category": "Cybersecurity & Ethical Hacking",
+        "description": [
+            "Hands‑on red‑team training in real environments using Kali Linux and Metasploit.",
+            "Focuses on evasion techniques, lateral movement, and privilege escalation.",
+            "Meant for advanced users aiming at offensive security careers."
+        ],
+        "rating": 4.9
+    }
+]
