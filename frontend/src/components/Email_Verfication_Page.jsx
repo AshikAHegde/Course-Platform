@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import axios from 'axios';
 
 // --- Email Verification Page Component ---
 // This component now handles a multi-step verification process:
@@ -11,26 +12,43 @@ function EmailVerificationPage({ onVerify }) {
   const [email, setEmail] = useState('');
   // State for the OTP input field.
   const [otp, setOtp] = useState('');
+  const [message, setMessage] = useState('');
+  const [loading, setLoading] = useState(false);
 
   // --- Handler for submitting the email ---
-  const handleEmailSubmit = (e) => {
+  const handleEmailSubmit = async (e) => {
     e.preventDefault();
-    // In a real application, you would send a request to your backend to send an OTP.
-    console.log(`Sending OTP to ${email}`);
-    // For this demo, we'll just move to the next step.
-    setStep('enter_otp');
+    setMessage('');
+    setLoading(true);
+    try {
+      // Call /auth/emailsend?token=email
+      await axios.get(`/auth/emailsend?token=${encodeURIComponent(email)}`);
+      setStep('enter_otp');
+      setMessage('Verification code sent to your email.');
+    } catch (err) {
+      setMessage(err.response?.data?.message || 'Failed to send verification code.');
+    } finally {
+      setLoading(false);
+    }
   };
 
   // --- Handler for verifying the OTP ---
-  const handleOtpSubmit = (e) => {
+  const handleOtpSubmit = async (e) => {
     e.preventDefault();
-    // In a real application, you would verify the OTP with your backend.
-    console.log(`Verifying OTP ${otp}`);
-    // For this demo, we'll assume any 6-digit OTP is correct and call the onVerify prop.
-    if (otp.length === 6 && /^\d{6}$/.test(otp)) {
+    setMessage('');
+    setLoading(true);
+    try {
+      // Call /auth/emailverify with { email, code }
+      await axios.post('/auth/emailverify', {
+        email,
+        code: otp
+      });
+      setMessage('Email verified successfully!');
       onVerify();
-    } else {
-      alert('Please enter a valid 6-digit OTP.'); // In a real app, use a modal or a toast notification.
+    } catch (err) {
+      setMessage(err.response?.data?.message || 'Verification failed.');
+    } finally {
+      setLoading(false);
     }
   };
 
@@ -66,11 +84,13 @@ function EmailVerificationPage({ onVerify }) {
               <button
                 type="submit"
                 className="group relative w-full flex justify-center py-2 px-4 border border-transparent text-sm font-medium rounded-md text-white bg-indigo-600 hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500"
+                disabled={loading}
               >
-                Send Verification Code
+                {loading ? 'Sending...' : 'Send Verification Code'}
               </button>
             </div>
           </form>
+          {message && <div className="text-center text-red-500 mt-2">{message}</div>}
         </div>
       ) : (
         // --- Step 2: OTP Input Form ---
@@ -102,11 +122,13 @@ function EmailVerificationPage({ onVerify }) {
               <button
                 type="submit"
                 className="group relative w-full flex justify-center py-2 px-4 border border-transparent text-sm font-medium rounded-md text-white bg-indigo-600 hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500"
+                disabled={loading}
               >
-                Verify
+                {loading ? 'Verifying...' : 'Verify'}
               </button>
             </div>
           </form>
+          {message && <div className="text-center text-red-500 mt-2">{message}</div>}
         </div>
       )}
     </div>
@@ -129,7 +151,6 @@ function MainApplication({ onSwitchPage }) {
     </div>
   );
 }
-
 
 // --- App Component (The Main Controller) ---
 // This component decides which page to show based on the application's state.

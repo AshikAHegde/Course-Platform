@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import axios from 'axios';
 
 // Renamed to SignIn for clarity, following PascalCase convention.
 export default function SignIn() {
@@ -10,6 +11,8 @@ export default function SignIn() {
     email: '',
     password: '',
   });
+  const [loading, setLoading] = useState(false);
+  const [message, setMessage] = useState('');
 
   // Handler to update state when user types in input fields
   const handleInputChange = (e) => {
@@ -21,11 +24,22 @@ export default function SignIn() {
   };
 
   // Handler for the main sign-in form submission
-  const handleSignInSubmit = (e) => {
+  const handleSignInSubmit = async (e) => {
     e.preventDefault();
-    // In a real application, you would send this data to your backend for authentication
-    console.log('Login attempt with:', formData);
-    alert('Login successful! (See console for data)');
+    setMessage('');
+    setLoading(true);
+    try {
+      const res = await axios.post('/auth/login', {
+        email: formData.email,
+        password: formData.password
+      });
+      setMessage('Login successful!');
+      // Optionally, handle token or user data here
+    } catch (err) {
+      setMessage(err.response?.data?.message || 'Login failed.');
+    } finally {
+      setLoading(false);
+    }
   };
 
   // Handler for the forgot password form submission
@@ -62,11 +76,12 @@ export default function SignIn() {
           </div>
         </div>
         <div>
-          <button type="submit" className="group relative w-full flex justify-center py-2 px-4 border border-transparent text-sm font-medium rounded-md text-white bg-indigo-600 hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500">
-            Sign In
+          <button type="submit" className="group relative w-full flex justify-center py-2 px-4 border border-transparent text-sm font-medium rounded-md text-white bg-indigo-600 hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500" disabled={loading}>
+            {loading ? 'Signing In...' : 'Sign In'}
           </button>
         </div>
       </form>
+      {message && <div className="text-center text-red-500 mt-2">{message}</div>}
     </>
   );
 
