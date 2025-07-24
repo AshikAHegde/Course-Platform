@@ -29,10 +29,14 @@ export default function SignIn() {
     setMessage('');
     setLoading(true);
     try {
-      const res = await axios.post('/auth/login', {
+      const res = await axios.post(`${import.meta.env.VITE_API_URL}/auth/login`, {
         email: formData.email,
         password: formData.password
-      });
+      },
+      {
+        withCredentials: true, // Include cookies in the request
+      }
+    );
       setMessage('Login successful!');
       // Optionally, handle token or user data here
     } catch (err) {
