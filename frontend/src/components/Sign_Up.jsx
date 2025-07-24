@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import axios from 'axios';
 
 // It's a best practice to name components using PascalCase (e.g., SignUp)
 export default function SignUp() {
@@ -11,6 +12,8 @@ export default function SignUp() {
         confirmPassword: '',
         accountType: 'Student', // Default value for the role
     });
+    const [loading, setLoading] = useState(false);
+    const [message, setMessage] = useState('');
 
     // A single handler function to update the state for any form field
     const handleInputChange = (e) => {
@@ -22,17 +25,27 @@ export default function SignUp() {
     };
 
     // Handler for the form submission
-    const handleSubmit = (e) => {
+    const handleSubmit = async (e) => {
         e.preventDefault();
+        setMessage('');
         // Check if passwords match
         if (formData.password !== formData.confirmPassword) {
-            // In a real app, show a user-friendly error message instead of an alert
-            alert("Passwords do not match!");
+            setMessage("Passwords do not match!");
             return;
         }
-        // In a real application, you would send this data to your backend API
-        console.log('Form submitted:', formData);
-        alert('Account created successfully! (See console for data)');
+        setLoading(true);
+        try {
+            const res = await axios.post('/auth/signup', {
+                username: formData.firstName + ' ' + formData.lastName,
+                email: formData.email,
+                password: formData.password
+            });
+            setMessage('Account created successfully! Please verify your email.');
+        } catch (err) {
+            setMessage(err.response?.data?.message || 'Signup failed.');
+        } finally {
+            setLoading(false);
+        }
     };
 
     return (
@@ -87,11 +100,12 @@ export default function SignUp() {
 
                     {/* Submit Button */}
                     <div>
-                        <button type="submit" className="group relative w-full flex justify-center py-2 px-4 border border-transparent text-sm font-medium rounded-md text-white bg-indigo-600 hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500">
-                            Create Account
+                        <button type="submit" className="group relative w-full flex justify-center py-2 px-4 border border-transparent text-sm font-medium rounded-md text-white bg-indigo-600 hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500" disabled={loading}>
+                            {loading ? 'Creating Account...' : 'Create Account'}
                         </button>
                     </div>
                 </form>
+                {message && <div className="text-center text-red-500 mt-2">{message}</div>}
             </div>
         </div>
     );
