@@ -10,6 +10,7 @@ const cors = require('cors');
 const connectDB = require('./DataBase/db');
 const authRoutes = require('./routes/auth');
 
+// app.use(cors());
 app.use(cors({
     origin: process.env.FRONTEND_URL, // Allow requests from the frontend URL
     credentials: true, // Allow cookies to be sent with requests
@@ -24,3 +25,4 @@ app.listen(PORT, () => {
     connectDB();
     console.log(`Server is running on port ${PORT}`);
 });
+

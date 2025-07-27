@@ -5,7 +5,7 @@ const jwt = require('jsonwebtoken');
 const userModel = require('../models/user');
 
 // Create a test account or replace with real credentials.
-console.log(`Email: ${myMail}, Pass: ${EMAIL_PASS_KEY}`);
+// console.log(`Email: ${myMail}, Pass: ${EMAIL_PASS_KEY}`);
 const transporter = nodemailer.createTransport({
     host: "smtp.gmail.com",
     port: 587,
