@@ -1,10 +1,8 @@
 import React, { useState } from 'react';
-import { useNavigate } from 'react-router-dom';
 import axios from 'axios';
 
 // Renamed to SignIn for clarity, following PascalCase convention.
 export default function SignIn() {
-  const navigate = useNavigate();
   // State to manage which view is active: 'signIn', 'forgotPassword', or 'resetSent'
   const [view, setView] = useState('signIn');
 
@@ -40,7 +38,6 @@ export default function SignIn() {
       }
     );
       setMessage('Login successful!');
-      navigate('signin/dashboard');
       // Optionally, handle token or user data here
     } catch (err) {
       setMessage(err.response?.data?.message || 'Login failed.');

@@ -1,11 +1,8 @@
 import React, { useState } from 'react';
-import {useNavigate} from 'react-router-dom'
 import axios from 'axios';
 
 // It's a best practice to name components using PascalCase (e.g., SignUp)
 export default function SignUp() {
-
-    const navigate=useNavigate();
     // State to hold all the form data in a single object
     const [formData, setFormData] = useState({
         firstName: '',
@@ -44,7 +41,6 @@ export default function SignUp() {
                 password: formData.password
             });
             setMessage('Account created successfully! Please verify your email.');
-            navigate('/signup/verify-email');
         } catch (err) {
             setMessage(err.response?.data?.message || 'Signup failed.');
         } finally {

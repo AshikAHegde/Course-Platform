@@ -15,11 +15,11 @@ export default function App() {
       <main className="flex items-center justify-center pt-24 px-4 min-h-screen bg-gray-100 font-sans">
         <Routes>
           <Route path="/" element={<Home />} />
-          <Route path="/signin/dashboard" element={<Dashboard />} />
+          <Route path="/dashboard" element={<Dashboard />} />
           <Route path="/profile" element={<Profile />} />
           <Route path="/signin" element={<SignIn />} />
-          <Route path="/signup" element={<SignUp />}/>
-          <Route path='/signup/verify-email' element={<VerifyEmail/>}/>
+          <Route path="/signup" element={<SignUp />} />
+          <Route path="/verify-email" element={<VerifyEmail />} />
         </Routes>
       </main>
     </Router>
