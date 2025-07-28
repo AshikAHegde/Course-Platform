@@ -1,21 +1,18 @@
 import React, { useState } from 'react';
 import axios from 'axios';
 
-// It's a best practice to name components using PascalCase (e.g., SignUp)
 export default function SignUp() {
-    // State to hold all the form data in a single object
     const [formData, setFormData] = useState({
         firstName: '',
         lastName: '',
         email: '',
         password: '',
         confirmPassword: '',
-        accountType: 'Student', // Default value for the role
+        accountType: 'Student',
     });
     const [loading, setLoading] = useState(false);
     const [message, setMessage] = useState('');
 
-    // A single handler function to update the state for any form field
     const handleInputChange = (e) => {
         const { name, value } = e.target;
         setFormData(prevData => ({
@@ -24,17 +21,16 @@ export default function SignUp() {
         }));
     };
 
-    // Handler for the form submission
     const handleSubmit = async (e) => {
         e.preventDefault();
         setMessage('');
-        // Check if passwords match
         if (formData.password !== formData.confirmPassword) {
             setMessage("Passwords do not match!");
             return;
         }
         setLoading(true);
         try {
+            // console.log(`${import.meta.env.VITE_API_URL}/auth/signup`);
             const res = await axios.post(`${import.meta.env.VITE_API_URL}/auth/signup`, {
                 username: formData.firstName + ' ' + formData.lastName,
                 email: formData.email,
@@ -58,7 +54,6 @@ export default function SignUp() {
                     </p>
                 </div>
                 <form className="mt-8 space-y-6" onSubmit={handleSubmit}>
-                    {/* Account Type Radio Buttons */}
                     <div className="flex justify-center space-x-4">
                         <label className="flex items-center space-x-2">
                             <input type="radio" name="accountType" value="Student" checked={formData.accountType === 'Student'} onChange={handleInputChange} className="form-radio text-indigo-600" />
@@ -69,8 +64,6 @@ export default function SignUp() {
                             <span className="text-gray-700">Instructor</span>
                         </label>
                     </div>
-
-                    {/* Name Fields */}
                     <div className="flex space-x-4">
                         <div className="w-1/2">
                             <label htmlFor="firstName" className="sr-only">First Name</label>

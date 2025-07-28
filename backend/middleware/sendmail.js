@@ -18,7 +18,7 @@ const transporter = nodemailer.createTransport({
 
     async function find_user(req,res) {
         try {
-        const token = req.query.token; // query parameter
+        const token =  req.cookies.token;
         const data = jwt.verify(token, process.env.JWT_SECRET);
         const user = await userModel.findOne({ email: data.email });
         if (!user) {

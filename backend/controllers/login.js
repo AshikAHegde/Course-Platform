@@ -22,12 +22,13 @@ module.exports = async (req, res) => {
             return res.status(400).json({ message: 'Invalid password' });
         }
         const token = jwt.sign({ email: user.email }, secretKey, { expiresIn: '1h' });
-        res.cookie("token", token, {
+        res.cookie("token", token 
+            , {
             secure: process.env.COOKIE_SECURE ,
             sameSite: "Lax",         // or "None" if cross-site (set "None" + secure in production)
             maxAge: 24 * 60 * 60 * 1000 // 1 day
         });
-
+        
         res.status(200).json({ message: 'Login successful', user: { username: user.username, email: user.email } });
 
     } catch (error) {
