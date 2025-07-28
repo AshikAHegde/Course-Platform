@@ -1,12 +1,9 @@
 import React, { useState } from 'react';
 import axios from 'axios';
 
-// Renamed to SignIn for clarity, following PascalCase convention.
 export default function SignIn() {
-  // State to manage which view is active: 'signIn', 'forgotPassword', or 'resetSent'
   const [view, setView] = useState('signIn');
 
-  // State for the form fields
   const [formData, setFormData] = useState({
     email: '',
     password: '',
@@ -14,7 +11,6 @@ export default function SignIn() {
   const [loading, setLoading] = useState(false);
   const [message, setMessage] = useState('');
 
-  // Handler to update state when user types in input fields
   const handleInputChange = (e) => {
     const { name, value } = e.target;
     setFormData(prevData => ({
@@ -23,7 +19,6 @@ export default function SignIn() {
     }));
   };
 
-  // Handler for the main sign-in form submission
   const handleSignInSubmit = async (e) => {
     e.preventDefault();
     setMessage('');
@@ -32,13 +27,11 @@ export default function SignIn() {
       const res = await axios.post(`${import.meta.env.VITE_API_URL}/auth/login`, {
         email: formData.email,
         password: formData.password
-      },
-      {
-        withCredentials: true, // Include cookies in the request
+      }, {
+        withCredentials: true // to send/receive cookies
       }
-    );
+      );
       setMessage('Login successful!');
-      // Optionally, handle token or user data here
     } catch (err) {
       setMessage(err.response?.data?.message || 'Login failed.');
     } finally {
@@ -46,17 +39,12 @@ export default function SignIn() {
     }
   };
 
-  // Handler for the forgot password form submission
   const handleForgotPasswordSubmit = (e) => {
     e.preventDefault();
-    // In a real app, you'd call your backend to trigger the password reset email
     console.log('Password reset requested for:', formData.email);
     setView('resetSent'); // Switch to the confirmation view
   };
 
-  // --- Render different views based on the 'view' state ---
-
-  // View 1: Main Sign In Form
   const renderSignIn = () => (
     <>
       <div className="text-center">
@@ -89,7 +77,6 @@ export default function SignIn() {
     </>
   );
 
-  // View 2: Forgot Password Form
   const renderForgotPassword = () => (
     <>
       <div className="text-center">
@@ -115,7 +102,6 @@ export default function SignIn() {
     </>
   );
 
-  // View 3: Confirmation Message
   const renderResetSent = () => (
     <div className="text-center">
       <h1 className="text-3xl font-bold text-gray-900">Check Your Email</h1>
